@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GURME FIRIN</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .navbar {
+            background-color: black;
+            padding-top: 10px; 
+            padding-bottom: 10px; 
+        }
+        .navbar .nav-link, .navbar .navbar-brand {
+            color: white;
+        }
+        .navbar .nav-link:hover, .navbar .navbar-brand:hover {
+            color: #ccc;
+        }
+        .marquee-container {
+            background-color: black;
+            color: white;
+            padding: 10px 0;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+        .marquee {
+            width: 100%;
+            white-space: nowrap;
+            overflow: hidden;
+            box-sizing: border-box;
+        }
+        .marquee p {
+            display: inline-block;
+            padding-left: 100%;
+            animation: marquee 15s linear infinite;
+        }
+        @keyframes marquee {
+            0%   { transform: translate(0, 0); }
+            100% { transform: translate(-100%, 0); }
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-md navbar-dark fixed-top">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" href="{% url 'index'%}">GURME FIRIN</a>
+  <div class="collapse navbar-collapse" id="navbarCollapse">
+    <ul class="navbar-nav mx-auto d-flex justify-content-center">
+      <li class="navbar-nav mx-auto d-flex justify-content-center">
+        <a class="nav-link" href="{% url 'about'%}">HAKKIMIZDA</a>
+      </li>
+      <li class="navbar-nav mx-auto d-flex justify-content-center">
+        <a class="nav-link" href="{% url 'article:articles'%}">YORUMLARIMIZ</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="http://127.0.0.1:8000/store/">ÜRÜNLERİMİZ</a>
+      </li>
+     
+   
+    
+    
+     
+    </ul>
+    <ul class="navbar-nav ml-auto">
+      {% if request.user.is_authenticated %}
+      <li class="navbar-nav mx-auto d-flex justify-content-center">
+        <a class="nav-link" href="{% url 'cart_view' %}">
+            SEPETİM
+            {% if cart_item_count > 0 %}
+                <span class="badge badge-pill badge-danger">{{ cart_item_count }}</span>
+            {% endif %}
+        </a>
+    </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'article:dashboard'%}">KONTROL PANELI</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'user:logout'%}">ÇIKIŞ YAP</a>
+      </li>   
+      {% else %}
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'user:login'%}">GİRİŞ YAP</a>
+      </li>
+      {% endif %}
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'user:register'%}">KAYIT OL </a>
+      </li>
+    </ul>
+  </div>
+  
+</nav>
+<div class="marquee-container">
+  <div class="marquee">
+    <br><br><br>
+    <p>GURME FIRIN'a Hoşgeldiniz! En iyi ekmek, pasta ve tatlılar burada!</p>
+  </div>
+</div>
+<br><br>
+
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

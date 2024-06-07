@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<style>
+    
+    .footer {
+        background-color: black;
+        color: white;
+        text-align: center;
+        margin-top: 0px;
+        padding: 10px 0;
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+    }
+   
+</style>
+
+<div>
+    <p style="font-weight: bold; font-size: larger;">Gurme Fırın Hakkında</p>
+    <p style="font-size: smaller;">Gurme Fırın, lezzet tutkunlarının damaklarını şenlendiren, geleneksel tatları modern bir dokunuşla buluşturan bir fırın ve pastane olarak faaliyet göstermektedir. Yola çıktığımız ilk günden beri amacımız, müşterilerimize en taze ve en kaliteli ürünleri sunarak lezzet dolu anlar yaşatmaktır.</p>
+    <p style="font-weight: bold; font-size: larger;">Kalite ve Lezzet</p>
+    <p style="font-size: smaller;">Ürünlerimizin temelinde kalite ve lezzet yatmaktadır. Her bir ürünümüzü özenle seçtiğimiz malzemelerle, geleneksel tariflere sadık kalarak ve modern tekniklerle hazırlıyoruz. İçeriklerimizde hiçbir katkı maddesi bulunmamakta olup, doğal ve sağlıklı bir lezzet deneyimi sunmayı amaçlıyoruz. </p>
+</div>
+
+<div class="image d-flex">
+    <img src="/media/ekmek-cesitleri.jpg"  style="height: 350px;"><br>
+    <p style="margin-left: 20px;"> <br>Odun ekmeği, geleneksel bir ekmek pişirme yöntemidir. Bu yöntemde, hamur doğal odun ateşiyle ısıtılmış bir fırında pişirilir. Odun ateşi, ekmeğe benzersiz bir aroma ve lezzet katar. Ekmeğin dış kabuğu kızarırken iç kısmı yumuşak ve hafif gözeneklidir. Odun ekmeği, uzun bir geçmişe sahip geleneksel bir pişirme yöntemi olup, birçok kültürde önemli bir yere sahiptir. Bu yöntemle pişirilen ekmeğin lezzeti ve dokusu, modern fırınlarda pişirilen ekmeklerden farklılık gösterir. Odun ekmeği, yerel tatların korunmasına ve ekmeğin benzersiz bir lezzet kazanmasına yardımcı olur. Geleneksel yöntemler ve doğal malzemeler kullanılarak yapılan odun ekmeği, lezzet arayanlar için önemli bir tercih olabilir. <br>    Çeşitlerimizi görmek için  <a href="{% url "article:articles" %}">tıklayınız.</a></p>
+</div>
+<br>
+<div class="image d-flex">
+    
+    <p style="margin-left: 20px;">Pasta, genellikle un, yumurta, şeker ve yağ gibi temel malzemelerin karıştırılmasıyla hazırlanan tatlı bir hamur işidir. Bu hamur, çeşitli şekillerde kesilip pişirilerek veya fırında pişirilerek hazırlanır. Pastalar genellikle kremalar, meyveler, çikolata veya fıstık ezmesi gibi çeşitli malzemelerle süslenir veya doldurulur. Pasta çeşitleri arasında kekler, muffinler, cupcakeler, tartlar, cheesecakeler ve kurabiyeler bulunur. Pastalar, özel günlerde veya sıradan bir günün tatlandırıcısı olarak tüketilir. Pastaların çeşitliliği ve sunumu, herkesin damak zevkine ve tercihine hitap edecek şekilde geniş bir yelpazeye sahiptir. Özel malzemelerle ve farklı pişirme teknikleriyle yapılan pastalar, lezzetli ve görsel olarak çekici tatlılar olarak bilinir.<br>    Çeşitlerimizi görmek için  <a href="{% url "article:articles" %}">tıklayınız.</a></p>
+    <img src="/media/oreo_wkkcNlg.jpg"  style="height: 350px;"><br>
+
+</div>
+<br>
+<div class="image d-flex">
+    <img src="/media/klasik.jpeg"  style="height: 350px; width: 500px;"><br>
+    <p style="margin-left: 20px;">   Tatlılar, genellikle şeker, un, yumurta ve süt gibi temel malzemelerle hazırlanan, genellikle yemeklerin sonunda veya özel günlerde tüketilen tatlı lezzetlerdir. Tatlılar, çeşitli pişirme teknikleriyle hazırlanabilir; bu teknikler arasında pişirme, dondurma, kaynatma, buharda pişirme ve fırınlama gibi yöntemler bulunur. Tatlılar, çikolata, meyve, kremalar, şekerleme, fındık, vanilya ve baharatlar gibi çeşitli malzemelerle zenginleştirilir ve süslenir. Pastalar, dondurmalar, kekler, kurabiyeler, puddingler, şekerlemeler ve meyve tatlıları gibi tatlı türleri popülerdir. Tatlılar, kültürel olarak da çeşitlilik gösterebilir; bazıları daha hafif ve meyve bazlıyken, bazıları daha yoğun ve çikolatalı olabilir. Tatlılar, tatlı ihtiyacını karşılamak ve özel anları tatlandırmak için keyifli ve lezzetli bir seçenektir.
+        <br>    Çeşitlerimizi görmek için  <a href="{% url "article:articles" %}">tıklayınız.</a></p>
+</div>
+<hr><hr>
+
+
+<p>İSTANBUL/GAZİOSMANPAŞA</p>
+
+<div class="footer">
+    <p>GURME FIRIN</p>
+
+      </footer>
+</div>
+
+{% endblock %}

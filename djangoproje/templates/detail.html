@@ -1,0 +1,71 @@
+{% extends "layout.html" %}
+{% block body %}
+
+<div class="row">
+    <div class="col-lg-8">
+        <!-- Post content-->
+        <article>
+            <!-- Post header-->
+            <header class="mb-4">
+                <!-- Post title-->
+                <h3 class="fw-bolder mb-1">{{ article.title }} </h3>
+                <!-- Post categories-->
+                <p class="lead">
+                    by {{ article.author.username }}
+                    <hr>
+                </p>
+                <!-- Post meta content-->
+                <div class="text-muted fst-italic mb-2">{{ article.created_date }}
+                </div>
+            </header>
+            <!-- Preview image figure-->
+            {% if article.article_image %}
+            <img class="img-fluid rounded mb-4" src="{{ article.article_image.url }}" alt="...">
+            {% endif %}
+            <hr>
+            <!-- Post content-->
+            <p class="lead">
+                {{ article.content | safe }}
+            </p>
+            <!-- Sepete ekle butonu -->
+            <form method="post" action="{% url 'add_to_cart' article.id %}">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-danger">Sepete Ekle</button>
+            </form>
+        </article>
+        
+        <h4>Yorumlar</h4>
+        <hr>
+        {% if comments %}
+        {% for comment in comments %}
+        <div class="media mb-4">
+            <img class="d-flex mr-3 rounded-circle" src="https://cdn.dribbble.com/users/944620/avatars/small/13f25ec40dd333ab1336228047fe071b.png?1573733171" alt="">
+            <div class="media-body">
+                <h5 class="mt-0">{{comment.comment_author}}</h5>
+                {{comment.comment_date}}
+                <br>
+                {{comment.comment_content}}
+            </div>
+        </div>
+        {% endfor %}
+
+        {% else %}
+        <div class="alert alert-danger">Bu ürüne herhangi bir yorum yazılmamış,İlk yorum yapan siz olun.</div>
+        {% endif %}
+
+        <h5 class="card-header">Yorum Ekle</h5>
+        <form class="mb-2" method="post" action="{% url 'article:comment' article.id %}">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="commentAuthor">İsim</label>
+                <input type="text" class="form-control" id="commentAuthor" name="comment_author" placeholder="İsminizi girin.">
+            </div>
+            <div class="form-group">
+                <label for="commentContent">Yorum</label>
+                <textarea class="form-control" id="commentContent" name="comment_content" rows="3"></textarea>
+            </div>
+            <button type="submit" class="btn btn-danger">Ekle</button>
+        </form>
+    </div>
+</div>
+{% endblock body %}

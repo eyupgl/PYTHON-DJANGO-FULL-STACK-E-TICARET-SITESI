@@ -1,0 +1,68 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<style>
+    .image-container {
+        display: flex;
+        justify-content: center; 
+        align-items: center; 
+        gap: 20px; 
+        height: 600px; 
+        margin-bottom:100px;
+    }
+    .image-container img {
+        width: 500px; 
+        height: 500px; 
+        object-fit: cover; 
+    }
+    .footer {
+        background-color: black;
+        color: white;
+        text-align: center;
+        margin-top: 0px;
+        padding: 10px 0;
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+    }
+   
+    
+</style>
+<!-- Kullanıcının giriş durumunu gösteren paragraf -->
+<p>
+    {% if request.user.is_authenticated %}
+        HOŞ GELDİNİZ {{ request.user.username }}
+    {% else %}
+        Giriş Yapılmamış
+    {% endif %}
+</p>
+
+<!-- Jumbotron kısmı, arka plan resmi ile birlikte -->
+<div class="jumbotron text-center" style="background-image: url('/media/hakkımızda.jpg'); background-size: cover; background-position: center; color: white; height: 500px; display: flex; align-items: center; justify-content: center;">
+    <h3 style="background-color: rgba(0, 0, 0, 0.5); padding: 10px;">
+        GURME FIRINA HOŞ GELDİNİZ
+    </h3>
+</div>
+<div class="container mt-3">   
+        <div class="image-container">
+        
+        <a href="{% url "about" %}">
+            <p>HAKKIMIZDA İÇİN TIKLAYINIZ</p>
+            <img src="media/anasayfa2.jpg">
+        </a>
+        <a href="{% url "article:articles" %}">
+            <p>ÜRÜNLERİMİZ İÇİN TIKAYINIZ</p>
+            <img src="media/anasayfa3.jpg">
+        </a>
+        
+    </div>
+</div>
+<div class="footer">
+    <p>GURME FIRIN</p>
+
+      </footer>
+</div>
+
+
+{% endblock body %}
